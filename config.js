@@ -16,13 +16,13 @@ const BIRTHDAY_CONFIG = {
   // Masukkan URL lagu (bisa mp3 online) atau biarkan default lagu santai/ceria
   music: {
     enabled: true,
-    url: "https://files.catbox.moe/kwqfcf.mp3", // ganti link lagu mp3 jika punya
+    url: "https://files.catbox.moe/uo55f3.webm", // ganti link lagu mp3 jika punya
     title: "Happy Birthday Melody 🎵"
   },
 
   // 3. PESAN SPESIAL (Bisa beberapa paragraf)
   letter: {
-    badge: "Special Message For You 💌",
+    badge: "Special Message For You From Someone💌",
     title: "Selamat Ulang Tahun! ✨",
     paragraphs: [
       "Selamat bertambah usia yang ke-{age}! Semoga di usiamu yang baru ini, setiap langkahmu dipenuhi dengan kebahagiaan, kesehatan, dan hal-hal baik yang selalu kamu semogakan.",
