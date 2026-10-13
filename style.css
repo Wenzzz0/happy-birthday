@@ -1,0 +1,578 @@
+/* ==========================================================
+   STYLE: BIRTHDAY SPECIAL CELEBRATION
+   Modern, Soft Pastel & Glassmorphism Aesthetic
+   ========================================================== */
+
+:root {
+  --primary: #ff6b8b;
+  --primary-light: #ff8e9e;
+  --primary-dark: #d6336c;
+  --secondary: #a855f7;
+  --accent: #f59e0b;
+  --bg-gradient: linear-gradient(135deg, #ffeef2 0%, #ffe3e8 40%, #f3e8ff 100%);
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(255, 255, 255, 0.85);
+  --text-main: #2d3748;
+  --text-muted: #718096;
+  --shadow-soft: 0 10px 30px rgba(255, 107, 139, 0.15);
+  --shadow-strong: 0 20px 45px rgba(214, 51, 108, 0.2);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background floating elements */
+#background-elements {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.balloon {
+  position: absolute;
+  width: 36px;
+  height: 48px;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  animation: floatUp 12s infinite ease-in;
+  opacity: 0.7;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 14px;
+  background: rgba(100, 100, 100, 0.4);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+  }
+  50% {
+    transform: translateY(50vh) rotate(15deg);
+  }
+  100% {
+    transform: translateY(-10vh) rotate(-15deg);
+  }
+}
+
+/* Music Control Pill */
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 18px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary-dark);
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: var(--shadow-strong);
+}
+
+.music-btn.playing .music-icon {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Fullscreen canvas for fireworks/confetti */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99;
+}
+
+/* App Container */
+.app-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 30px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* Screen 1: Welcome Intro Modal */
+.intro-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 238, 242, 0.96);
+  backdrop-filter: blur(16px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.intro-modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-box {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-strong);
+  border: 2px solid rgba(255, 107, 139, 0.2);
+  animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.gift-icon {
+  font-size: 4rem;
+  margin-bottom: 12px;
+  display: inline-block;
+  animation: wiggle 2s infinite ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-10deg) scale(1.05); }
+  75% { transform: rotate(10deg) scale(1.05); }
+}
+
+.intro-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.intro-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.btn-open {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(214, 51, 108, 0.35);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-open:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(214, 51, 108, 0.45);
+}
+
+/* Hero Section */
+.hero-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  padding: 40px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(255, 107, 139, 0.15);
+  color: var(--primary-dark);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #d6336c, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.hero-age-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff6b8b, #a855f7);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.3rem;
+  box-shadow: 0 6px 15px rgba(168, 85, 247, 0.35);
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+/* Birthday Cake & Candle Section */
+.cake-section {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  padding: 40px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cake-box {
+  position: relative;
+  width: 200px;
+  height: 170px;
+  margin-top: 20px;
+}
+
+/* CSS Cake Drawing */
+.cake {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 100px;
+  background: #fde2e4;
+  border-radius: 12px 12px 8px 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+
+.cake::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 25px;
+  background: #ff85a2;
+  border-radius: 12px 12px 20px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.cake-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35px;
+  background: #ffccd5;
+  border-radius: 0 0 8px 8px;
+  border-top: 4px dashed #ffb3c1;
+}
+
+/* Candle */
+.candle {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 44px;
+  background: repeating-linear-gradient(45deg, #fff, #fff 4px, #a855f7 4px, #a855f7 8px);
+  border-radius: 6px 6px 0 0;
+}
+
+.flame {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 24px;
+  background: linear-gradient(to bottom, #fff7ed 0%, #f59e0b 50%, #ef4444 100%);
+  border-radius: 50% 50% 20% 20%;
+  box-shadow: 0 0 16px #f59e0b, 0 0 32px #f59e0b;
+  animation: flicker 0.8s infinite alternate ease-in-out;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.flame.blown-out {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.2);
+  pointer-events: none;
+}
+
+.smoke {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  width: 6px;
+  height: 20px;
+  background: rgba(180, 180, 180, 0.6);
+  border-radius: 10px;
+  filter: blur(2px);
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.flame.blown-out + .smoke {
+  animation: riseSmoke 1.5s forwards ease-out;
+}
+
+@keyframes riseSmoke {
+  0% { opacity: 0.8; transform: translateX(-50%) translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateX(-60%) translateY(-35px) scale(2.5); }
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+  100% { transform: translateX(-50%) scale(1.1) rotate(2deg); }
+}
+
+.btn-blow {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.35);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-blow:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.btn-blow:disabled {
+  background: #cbd5e1;
+  box-shadow: none;
+  cursor: default;
+  transform: none;
+}
+
+.cake-hint {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Special Letter Section */
+.letter-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+.letter-badge {
+  display: inline-block;
+  background: rgba(168, 85, 247, 0.12);
+  color: var(--secondary);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.letter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 20px;
+}
+
+.letter-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4a5568;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.letter-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(200, 200, 200, 0.6);
+  text-align: right;
+  font-style: italic;
+}
+
+.letter-closing {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.letter-sender {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-top: 4px;
+}
+
+/* Polaroid Gallery */
+.gallery-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.polaroid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.polaroid-card {
+  background: white;
+  padding: 12px 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+  transform: rotate(var(--rot, 0deg));
+}
+
+.polaroid-card:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  box-shadow: 0 16px 35px rgba(214, 51, 108, 0.2);
+  z-index: 5;
+}
+
+.polaroid-img-box {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #f1f5f9;
+}
+
+.polaroid-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.polaroid-card:hover .polaroid-img-box img {
+  transform: scale(1.08);
+}
+
+.polaroid-caption {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-family: 'Caveat', cursive, 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #4b5563;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Footer Wishes */
+.footer-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 20px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .app-wrapper {
+    padding: 20px 14px 60px;
+    gap: 24px;
+  }
+  .hero-card, .cake-section, .letter-card {
+    padding: 28px 18px;
+  }
+  .polaroid-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+

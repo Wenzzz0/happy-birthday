@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday! 🎂✨</title>
+  
+  <!-- SEO & Social Media Share Meta Tags (WhatsApp, Telegram, IG Preview) -->
+  <meta name="description" content="Kado website ucapan ulang tahun spesial penuh momen indah dan doa terbaik.">
+  <meta property="og:title" content="Happy Birthday! Ada Kado Spesial Untukmu 🎁✨">
+  <meta property="og:description" content="Buka halaman ini untuk melihat kejutan ulang tahunmu!">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#ff6b8b">
+
+  <!-- Google Fonts: Poppins & Caveat (tulisan tangan aesthetic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Canvas Confetti Library via CDN (Ringan & Cepat untuk deployment) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Background Elements (Balon melayang) -->
+  <div id="background-elements"></div>
+
+  <!-- Audio Element untuk Lagu Latar -->
+  <audio id="bg-music" preload="auto"></audio>
+
+  <!-- Tombol Kontrol Musik Mengambang -->
+  <button id="music-toggle" class="music-btn" title="Nyalakan/Matikan Musik">
+    <span class="music-icon">🎵</span>
+    <span class="music-text">Putar Musik</span>
+  </button>
+
+  <!-- MODAL INTRO / KADO PEMBUKA -->
+  <div id="intro-modal" class="intro-modal">
+    <div class="intro-box">
+      <div class="gift-icon">🎁</div>
+      <h2 class="intro-title">Ada Kejutan Untukmu!</h2>
+      <p class="intro-desc">Seseorang telah menyiapkan sebuah kado digital kecil yang dibuat khusus di hari spesial ini.</p>
+      <button id="btn-open-gift" class="btn-open">
+        <span>Buka Kejutan</span>
+        <span>✨</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- KONTEN UTAMA -->
+  <div class="app-wrapper">
+
+    <!-- 1. Hero Section -->
+    <header class="hero-card">
+      <span class="hero-tag">Special Birthday Celebration</span>
+      <h1 class="hero-title">
+        Happy Birthday, <br>
+        <span id="hero-name">Annora Nathania Tampubolon</span>
+        <span id="hero-age-badge" class="hero-age-badge">14</span>
+      </h1>
+      <p id="hero-subtitle" class="hero-subtitle">Merayakan usia baru dengan penuh doa dan kebahagiaan 🌸</p>
+    </header>
+
+    <!-- 2. Interactive Cake & Candle Section -->
+    <section class="cake-section">
+      <div class="cake-box">
+        <!-- Lilin & Api -->
+        <div class="candle">
+          <div id="candle-flame" class="flame"></div>
+          <div class="smoke"></div>
+        </div>
+        <!-- Kue CSS -->
+        <div class="cake">
+          <div class="cake-layer"></div>
+        </div>
+      </div>
+
+      <button id="btn-blow" class="btn-blow">
+        <span>Tiup Lilin & Buat Harapan</span> 🎂
+      </button>
+      <p id="cake-hint" class="cake-hint">Klik tombol di atas untuk meniup lilinnya ✨</p>
+    </section>
+
+    <!-- 3. Surat / Pesan Doa Spesial -->
+    <section class="letter-card">
+      <div id="letter-badge" class="letter-badge">Special Letter 💌</div>
+      <h2 id="letter-title" class="letter-title">Selamat Ulang Tahun! ✨</h2>
+      <div id="letter-body" class="letter-body">
+        <!-- Paragraf pesan otomatis di-load dari config.js -->
+      </div>
+      <div class="letter-footer">
+        <p id="letter-closing" class="letter-closing">Dengan sepenuh cinta,</p>
+        <p id="letter-sender" class="letter-sender">Seseorang yang beruntung memilikimu 🤍</p>
+      </div>
+    </section>
+
+    <!-- 4. Galeri Polaroid Foto Kenangan -->
+    <section class="gallery-section">
+      <h2 class="section-heading">Momen & Kenangan Manis 📸</h2>
+      <div id="gallery-grid" class="polaroid-grid">
+        <!-- Foto-foto polaroid otomatis di-load dari config.js -->
+      </div>
+    </section>
+
+    <!-- 5. Footer -->
+    <footer class="footer-note">
+      <p>Made with love & special wishes for your special day 🎂💖</p>
+    </footer>
+
+  </div>
+
+  <!-- Script Konfigurasi & Interaktivitas -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
