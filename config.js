@@ -7,10 +7,10 @@
 
 const BIRTHDAY_CONFIG = {
   // 1. INFORMASI UTAMA
-  name: "Annora Nathania Tampubolon",              // Nama lengkap yang berulang tahun
-  nickname: "Nora",                   // Panggilan akrab / sayang
-  age: 14,                           // Umur sekarang
-  birthDate: "15 Juni",           // Tanggal ulang tahun
+  name: "Daven",              // Nama lengkap yang berulang tahun
+  nickname: "Ven",                   // Panggilan akrab / sayang
+  age: 200,                           // Umur sekarang
+  birthDate: "30 july",           // Tanggal ulang tahun
 
   // 2. MUSIK LATAR (BGM)
   // Masukkan URL lagu (bisa mp3 online) atau biarkan default lagu santai/ceria
