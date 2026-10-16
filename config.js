@@ -7,10 +7,10 @@
 
 const BIRTHDAY_CONFIG = {
   // 1. INFORMASI UTAMA
-  name: "Daven",              // Nama lengkap yang berulang tahun
-  nickname: "Ven",                   // Panggilan akrab / sayang
-  age: 200,                           // Umur sekarang
-  birthDate: "30 july",           // Tanggal ulang tahun
+  name: "Nama_Lengkap",              // Nama lengkap yang berulang tahun
+  nickname: "Panggilan",                   // Panggilan akrab / sayang
+  age: Umur,                           // Umur sekarang
+  birthDate: "Tanggal/Ulang_Tahun",           // Tanggal ulang tahun
 
   // 2. MUSIK LATAR (BGM)
   // Masukkan URL lagu (bisa mp3 online) atau biarkan default lagu santai/ceria
@@ -53,7 +53,7 @@ const BIRTHDAY_CONFIG = {
   // 5. FITUR INTERAKTIF
   features: {
     floatingBalloons: true,         // Balon melayang di background
-    candleBlowCount: 1,             // Jumlah lilin di kue
+    candleBlowCount: 5,             // Jumlah lilin di kue
     confettiExplosion: true         // Ledakan konfeti saat lilin ditiup
   }
 };
